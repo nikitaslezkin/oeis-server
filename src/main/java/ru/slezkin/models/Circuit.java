@@ -19,6 +19,14 @@ public class Circuit {
 
     private String ckt;
 
+    private String paper_links;
+
+    private String basis;
+
+    private Integer circuit_author;
+
+    private Boolean checked;
+
     public Circuit() {
     }
 
@@ -37,7 +45,6 @@ public class Circuit {
     public void setName(String name) {
         this.name = name;
     }
-
 
     public String getDescription() {
         return description;
@@ -61,5 +68,37 @@ public class Circuit {
 
     public void setCkt(String ckt) {
         this.ckt = ckt;
+    }
+
+    public String getPaper_links() {
+        return paper_links;
+    }
+
+    public void setPaper_links(String paper_links) {
+        this.paper_links = paper_links;
+    }
+
+    public String getBasis() {
+        return basis;
+    }
+
+    public void setBasis(String basis) {
+        this.basis = basis;
+    }
+
+    public Integer getCircuit_author() {
+        return circuit_author;
+    }
+
+    public void setCircuit_author(Integer circuit_author) {
+        this.circuit_author = circuit_author;
+    }
+
+    public Boolean getChecked() {
+        return checked;
+    }
+
+    public void setChecked(Boolean checked) {
+        this.checked = checked;
     }
 }
