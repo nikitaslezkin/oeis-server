@@ -1,33 +1,42 @@
 package ru.slezkin.models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
+@Table(name = "circuit")
 public class Circuit {
+
     @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @Column(name = "id")
     private Integer id;
 
     private String name;
 
     private String description;
 
-    private String tags;
-
     private String ckt;
 
-    private String paper_links;
+    private String truth_table;
 
-    private String basis;
+    @ManyToOne
+    @JoinColumn(name = "user_id", referencedColumnName = "id")
+    private User user;
 
-    private Integer circuit_author;
+    @ManyToOne
+    @JoinColumn(name = "basis_id", referencedColumnName = "id")
+    private Basis basis;
 
     private Boolean checked;
 
-    public Circuit() {
+    public Circuit() { }
+
+    public Circuit(String name, String description, String ckt, String truth_table, Boolean checked) {
+        this.name = name;
+        this.description = description;
+        this.ckt = ckt;
+        this.truth_table = truth_table;
+        this.checked = checked;
     }
 
     public Integer getId() {
@@ -54,14 +63,6 @@ public class Circuit {
         this.description = description;
     }
 
-    public String getTags() {
-        return tags;
-    }
-
-    public void setTags(String tags) {
-        this.tags = tags;
-    }
-
     public String getCkt() {
         return ckt;
     }
@@ -70,28 +71,28 @@ public class Circuit {
         this.ckt = ckt;
     }
 
-    public String getPaper_links() {
-        return paper_links;
+    public String getTruth_table() {
+        return truth_table;
     }
 
-    public void setPaper_links(String paper_links) {
-        this.paper_links = paper_links;
+    public void setTruth_table(String truth_table) {
+        this.truth_table = truth_table;
     }
 
-    public String getBasis() {
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public Basis getBasis() {
         return basis;
     }
 
-    public void setBasis(String basis) {
+    public void setBasis(Basis basis) {
         this.basis = basis;
-    }
-
-    public Integer getCircuit_author() {
-        return circuit_author;
-    }
-
-    public void setCircuit_author(Integer circuit_author) {
-        this.circuit_author = circuit_author;
     }
 
     public Boolean getChecked() {

@@ -1,25 +1,30 @@
 package ru.slezkin.models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
+@Table(name = "user")
 public class User {
+
     @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @Column(name = "id")
     private Integer id;
 
     private String login;
 
     private String password;
 
-    private String permission;
+    @ManyToOne
+    @JoinColumn(name = "permission_id", referencedColumnName = "id")
+    private Permission permission;
 
-    public User() {
+    public User() { }
+
+    public User(String login, String password) {
+        this.login = login;
+        this.password = password;
     }
-
 
     public Integer getId() {
         return id;
@@ -45,11 +50,11 @@ public class User {
         this.password = password;
     }
 
-    public String getPermission() {
+    public Permission getPermission() {
         return permission;
     }
 
-    public void setPermission(String permission) {
+    public void setPermission(Permission permission) {
         this.permission = permission;
     }
 }

@@ -3,7 +3,7 @@ package ru.slezkin.models;
 import javax.persistence.*;
 
 @Entity
-public class Paper {
+public class Basis {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Integer id;
@@ -12,11 +12,7 @@ public class Paper {
 
     private String description;
 
-    private String place;
-
-    private String doi;
-
-    public Paper() { }
+    public Basis() { }
 
     public Integer getId() {
         return id;
@@ -34,27 +30,11 @@ public class Paper {
         this.name = name;
     }
 
-    public String getPlace() {
-        return place;
-    }
-
-    public void setPlace(String place) {
-        this.place = place;
-    }
-
     public String getDescription() {
         return description;
     }
 
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    public String getDoi() {
-        return doi;
-    }
-
-    public void setDoi(String doi) {
-        this.doi = doi;
     }
 }
