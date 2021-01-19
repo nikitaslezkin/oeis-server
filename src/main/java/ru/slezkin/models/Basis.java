@@ -14,6 +14,11 @@ public class Basis {
 
     public Basis() { }
 
+    public Basis(String name, String description) {
+        this.name = name;
+        this.description = description;
+    }
+
     public Integer getId() {
         return id;
     }

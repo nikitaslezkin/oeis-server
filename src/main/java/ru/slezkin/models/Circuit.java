@@ -31,11 +31,13 @@ public class Circuit {
 
     public Circuit() { }
 
-    public Circuit(String name, String description, String ckt, String truth_table, Boolean checked) {
+    public Circuit(String name, String description, String ckt, Basis basis, String truth_table, User user, Boolean checked) {
         this.name = name;
         this.description = description;
         this.ckt = ckt;
+        this.basis = basis;
         this.truth_table = truth_table;
+        this.user = user;
         this.checked = checked;
     }
 

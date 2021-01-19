@@ -14,6 +14,11 @@ public class Author {
 
     public Author() { }
 
+    public Author(String name, String description) {
+        this.name = name;
+        this.description = description;
+    }
+
     public Integer getId() {
         return id;
     }

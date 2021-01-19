@@ -20,6 +20,11 @@ public class CircuitTag {
 
     public CircuitTag() { }
 
+    public CircuitTag(Circuit circuit, Tag tag) {
+        this.circuit = circuit;
+        this.tag = tag;
+    }
+
     public Integer getId() {
         return id;
     }

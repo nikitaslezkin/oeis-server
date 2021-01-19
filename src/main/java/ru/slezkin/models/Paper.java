@@ -18,6 +18,13 @@ public class Paper {
 
     public Paper() { }
 
+    public Paper(String name, String description, String place, String doi) {
+        this.name = name;
+        this.description = description;
+        this.place = place;
+        this.doi = doi;
+    }
+
     public Integer getId() {
         return id;
     }

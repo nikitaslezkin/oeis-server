@@ -4,61 +4,94 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import ru.slezkin.models.Circuit;
+import ru.slezkin.models.*;
+import ru.slezkin.repo.BasisRepository;
 import ru.slezkin.repo.CircuitRepository;
+import ru.slezkin.repo.UserRepository;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
+@RequestMapping("/circuit")
 public class CircuitController {
     @Autowired
     private CircuitRepository circuitRepository;
 
-    @GetMapping(path="/get_all_circuits")
+    @Autowired
+    private UserRepository userRepository;
+
+    @Autowired
+    private BasisRepository basisRepository;
+
+    @GetMapping(path="/all")
     public ResponseEntity<?> getAllCircuits() {
         List<Circuit> result = circuitRepository.findAllCircuits();
 
         return new ResponseEntity<>(result, HttpStatus.OK);
     }
 
-//    @GetMapping(path="/get_all_checked_circuits")
-//    public List<Circuit> getAllCheckedCircuits() {
-//        List<Circuit> result = circuitRepository.findAllCheckedCircuits();
-//
-//        return result;
-//    }
-//
-//    @GetMapping(path="/get_all_unchecked_circuits")
-//    public List<Circuit> getAllUncheckedCircuits() {
-//        List<Circuit> result = circuitRepository.findAllUncheckedCircuits();
-//
-//        return result;
-//    }
-//
-//    @GetMapping(path="/get_circuit_by_id")
-//    public Circuit getCircuitById(@RequestParam(value = "id") Integer id) {
-//        Circuit result = circuitRepository.findById(id).orElse(new Circuit());
-//
-//        return result;
-//    }
-//
-//    @PostMapping(path="/add_circuit")
-//    public Circuit addCircuit(@RequestParam(value = "name", defaultValue = "") String name,
-//                              @RequestParam(value = "desc", defaultValue = "") String description,
-//                              @RequestParam(value = "ckt", defaultValue = "") String ckt,
-//                              @RequestParam(value = "basis_id", defaultValue = "") Integer basis_id,
-//                              @RequestParam(value = "truth_table", defaultValue = "") String truth_table,
-//                              @RequestParam(value = "author", defaultValue = "0") Integer circuit_author) {
-//        Circuit circuit = new Circuit(name, description, ckt, basis_id, truth_table, false);
-//        Circuit result = circuitRepository.save(circuit);
-//        return result;
-//    }
-//
-//    @PostMapping(path="/check_circuit_by_id")
-//    public String checkingCircuitById(@RequestParam(value = "id") Integer id) {
-//        Optional<Circuit> circuit = circuitRepository.findById(id);
-//        circuit.get().setChecked(Boolean.TRUE);
-//        circuitRepository.save(circuit.get());
-//
-//        return "OK";
-//    }
+    @GetMapping(path="/get_all_checked")
+    public ResponseEntity<?> getAllCheckedCircuits() {
+        List<Circuit> result = circuitRepository.findAllCheckedCircuits();
+
+        return new ResponseEntity<>(result, HttpStatus.OK);
+    }
+
+    @GetMapping(path="/get_all_unchecked")
+    public ResponseEntity<?> getAllUncheckedCircuits() {
+        List<Circuit> result = circuitRepository.findAllUncheckedCircuits();
+
+        return new ResponseEntity<>(result, HttpStatus.OK);
+    }
+
+    @GetMapping(path="/get_by_id")
+    public ResponseEntity<?> getCircuitById(@RequestParam(value = "id") Integer id) {
+        Optional<Circuit> result = circuitRepository.findById(id);
+        if (result.isEmpty()) {
+            return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+        }
+        return new ResponseEntity<>(result, HttpStatus.OK);
+    }
+
+    @PostMapping(path="/add")
+    public ResponseEntity<?> addCircuit(@RequestParam(value = "name", defaultValue = "") String name,
+                              @RequestParam(value = "description", defaultValue = "") String description,
+                              @RequestParam(value = "ckt", defaultValue = "") String ckt,
+                              @RequestParam(value = "basis_id", defaultValue = "") Integer basis_id,
+                              @RequestParam(value = "truth_table", defaultValue = "") String truth_table,
+                              @RequestParam(value = "user_id", defaultValue = "") Integer user_id) {
+        Optional<User> user = userRepository.findById(user_id);
+        if (user.isEmpty()) {
+            return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+        }
+        Optional<Basis> basis = basisRepository.findById(basis_id);
+        if (basis.isEmpty()) {
+            return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+        }
+        Circuit circuit = new Circuit(name, description, ckt, basis.get(), truth_table, user.get(), false);
+        Circuit result = circuitRepository.save(circuit);
+        return new ResponseEntity<>(result, HttpStatus.OK);
+    }
+
+    @PostMapping(path="/check_by_id")
+    public ResponseEntity<?> checkCircuitById(@RequestParam(value = "id") Integer id) {
+        Optional<Circuit> result = circuitRepository.findById(id);
+        if (result.isEmpty()) {
+            return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+        }
+        result.get().setChecked(Boolean.TRUE);
+        circuitRepository.save(result.get());
+
+        return new ResponseEntity<>(result, HttpStatus.OK);
+    }
+
+    @PostMapping(path="/delete_by_id")
+    public ResponseEntity<?> deleteCircuitById(@RequestParam(value = "id") Integer id) {
+        Optional<Circuit> result = circuitRepository.findById(id);
+        if (result.isEmpty()) {
+            return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+        }
+        circuitRepository.delete(result.get());
+        return new ResponseEntity<>(result, HttpStatus.OK);
+    }
 }

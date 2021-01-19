@@ -13,6 +13,10 @@ public class Permission {
 
     public Permission() { }
 
+    public Permission(String name) {
+        this.name = name;
+    }
+
     public Integer getId() {
         return id;
     }

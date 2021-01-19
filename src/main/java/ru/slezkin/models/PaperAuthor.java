@@ -20,6 +20,11 @@ public class PaperAuthor {
 
     public PaperAuthor() { }
 
+    public PaperAuthor(Paper paper, Author author) {
+        this.paper = paper;
+        this.author = author;
+    }
+
     public Integer getId() {
         return id;
     }

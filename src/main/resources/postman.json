@@ -1,0 +1,1298 @@
+{
+	"info": {
+		"_postman_id": "17c16fa9-a1c7-495f-936c-bc39daa352da",
+		"name": "oeis",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Circuit",
+			"item": [
+				{
+					"name": "getAllCircuits",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/circuit/all",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"circuit",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAllCheckedCircuits",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/circuit/get_all_checked",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"circuit",
+								"get_all_checked"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAllUncheckedCircuits",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/circuit/get_all_unchecked",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"circuit",
+								"get_all_unchecked"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getCircuitById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/circuit/get_by_id?id=1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"circuit",
+								"get_by_id"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "addCircuit",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/circuit/add?name=Threashhold2&description=This is a thr2 function&tags=th, th2&ckt=ckt here&basis_id=1&truth_table=01101010101&user_id=2",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"circuit",
+								"add"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Threashhold2"
+								},
+								{
+									"key": "description",
+									"value": "This is a thr2 function"
+								},
+								{
+									"key": "tags",
+									"value": "th, th2"
+								},
+								{
+									"key": "ckt",
+									"value": "ckt here"
+								},
+								{
+									"key": "basis_id",
+									"value": "1"
+								},
+								{
+									"key": "truth_table",
+									"value": "01101010101"
+								},
+								{
+									"key": "user_id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "checkingCircuitById",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/circuit/check_by_id?id=5",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"circuit",
+								"check_by_id"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "5"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteCircuitById",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/circuit/delete_by_id?id=6",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"circuit",
+								"delete_by_id"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "6"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "getAllUsers",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/user/all",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"user",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getUserById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/user/get_by_id?id=3",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"user",
+								"get_by_id"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "addUser",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/user/add?login=venikpapa&password=qwerty&permission_id=1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"user",
+								"add"
+							],
+							"query": [
+								{
+									"key": "login",
+									"value": "venikpapa"
+								},
+								{
+									"key": "password",
+									"value": "qwerty"
+								},
+								{
+									"key": "permission_id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "changeUserPermissionById",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/user/change_permission_by_id?id=3&permission_id=2",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"user",
+								"change_permission_by_id"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "3"
+								},
+								{
+									"key": "permission_id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteUserById",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/user/delete_by_id?id=4",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"user",
+								"delete_by_id"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "4"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Tag",
+			"item": [
+				{
+					"name": "getAllTags",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/tag/all",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"tag",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getTagById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/tag/get_by_id?id=2",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"tag",
+								"get_by_id"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "addTag",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/tag/add?name=newtag",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"tag",
+								"add"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "newtag"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteTagById",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/tag/delete_by_id?id=5",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"tag",
+								"delete_by_id"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "5"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Permission",
+			"item": [
+				{
+					"name": "getAllPermissions",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/permission/all",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"permission",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getPermissionById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/permission/get_by_id?id=1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"permission",
+								"get_by_id"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "addPermission",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/permission/add?name=super_author",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"permission",
+								"add"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "super_author"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deletePermissionById",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/permission/delete_by_id?id=1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"permission",
+								"delete_by_id"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Basis",
+			"item": [
+				{
+					"name": "getAllBases",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/basis/all",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"basis",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getBasisById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/basis/get_by_id?id=2",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"basis",
+								"get_by_id"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "addBasis",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/basis/add?name=W2&description=desc",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"basis",
+								"add"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "W2"
+								},
+								{
+									"key": "description",
+									"value": "desc"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteBasisById",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/basis/delete_by_id?id=1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"basis",
+								"delete_by_id"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Author",
+			"item": [
+				{
+					"name": "getAllAuthors",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/author/all",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"author",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAuthorById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/author/get_by_id?id=1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"author",
+								"get_by_id"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "addAuthor",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/author/add?name=Nikita&description=desssc",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"author",
+								"add"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Nikita"
+								},
+								{
+									"key": "description",
+									"value": "desssc"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteAuthorById",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/author/delete_by_id?id=50",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"author",
+								"delete_by_id"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "50"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Paper",
+			"item": [
+				{
+					"name": "getAllPapers",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/paper/all",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"paper",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getPaperById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/paper/get_by_id?id=20",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"paper",
+								"get_by_id"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "20"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "addPaper",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/paper/add?name=name_paper&description=desc&place=name of paper&doi=doi:020103024823",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"paper",
+								"add"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "name_paper"
+								},
+								{
+									"key": "description",
+									"value": "desc"
+								},
+								{
+									"key": "place",
+									"value": "name of paper"
+								},
+								{
+									"key": "doi",
+									"value": "doi:020103024823"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deletePaperById",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/paper/delete_by_id?id=20",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"paper",
+								"delete_by_id"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "20"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "PaperAuthor",
+			"item": [
+				{
+					"name": "getAllPaperAuthor",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/paper_author/all",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"paper_author",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAllAuthorsByPaperId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/paper_author/get_all_authors_by_paper_id?paper_id=10",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"paper_author",
+								"get_all_authors_by_paper_id"
+							],
+							"query": [
+								{
+									"key": "paper_id",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAllPapersByAuthorId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/paper_author/get_all_papers_by_author_id?author_id",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"paper_author",
+								"get_all_papers_by_author_id"
+							],
+							"query": [
+								{
+									"key": "author_id",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "addPaperAuthor",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/paper_author/add?paper_id=11&author_id=12",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"paper_author",
+								"add"
+							],
+							"query": [
+								{
+									"key": "paper_id",
+									"value": "11"
+								},
+								{
+									"key": "author_id",
+									"value": "12"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "PaperTag",
+			"item": [
+				{
+					"name": "getAllPaperTag",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/paper_tag/all",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"paper_tag",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAllTagsByPaperId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/paper_tag/get_all_tags_by_paper_id?paper_id=11",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"paper_tag",
+								"get_all_tags_by_paper_id"
+							],
+							"query": [
+								{
+									"key": "paper_id",
+									"value": "11"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAllPapersByTagId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/paper_tag/get_all_papers_by_tag_id?tag_id=12",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"paper_tag",
+								"get_all_papers_by_tag_id"
+							],
+							"query": [
+								{
+									"key": "tag_id",
+									"value": "12"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "addPaperTag",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/paper_tag/add?paper_id=13&tag_id=14",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"paper_tag",
+								"add"
+							],
+							"query": [
+								{
+									"key": "paper_id",
+									"value": "13"
+								},
+								{
+									"key": "tag_id",
+									"value": "14"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "CircuitPaper",
+			"item": [
+				{
+					"name": "getAllCircuitPaper",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/circuit_paper/all",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"circuit_paper",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAllPapersByCircuitId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/circuit_paper/get_all_papers_by_circuit_id?circuit_id=11",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"circuit_paper",
+								"get_all_papers_by_circuit_id"
+							],
+							"query": [
+								{
+									"key": "circuit_id",
+									"value": "11"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAllCircuitsByPaperId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/circuit_paper/get_all_circuits_by_paper_id?paper_id=15",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"circuit_paper",
+								"get_all_circuits_by_paper_id"
+							],
+							"query": [
+								{
+									"key": "paper_id",
+									"value": "15"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "addCircuitPaper",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/circuit_paper/add?circuit_id=12&paper_id=13",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"circuit_paper",
+								"add"
+							],
+							"query": [
+								{
+									"key": "circuit_id",
+									"value": "12"
+								},
+								{
+									"key": "paper_id",
+									"value": "13"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "CircuitTag",
+			"item": [
+				{
+					"name": "getAllCircuitTag",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/circuit_tag/all",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"circuit_tag",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAllTagsByCircuitId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/circuit_tag/get_all_tags_by_circuit_id?circuit_id=13",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"circuit_tag",
+								"get_all_tags_by_circuit_id"
+							],
+							"query": [
+								{
+									"key": "circuit_id",
+									"value": "13"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAllCircuitsByTagId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/circuit_tag/get_all_circuits_by_tag_id?tag_id=12",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"circuit_tag",
+								"get_all_circuits_by_tag_id"
+							],
+							"query": [
+								{
+									"key": "tag_id",
+									"value": "12"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "addCircuitTag",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/circuit_tag/add?circuit_id=15&tag_id=16",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"circuit_tag",
+								"add"
+							],
+							"query": [
+								{
+									"key": "circuit_id",
+									"value": "15"
+								},
+								{
+									"key": "tag_id",
+									"value": "16"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

@@ -20,6 +20,11 @@ public class CircuitPaper {
 
     public CircuitPaper() { }
 
+    public CircuitPaper(Circuit circuit, Paper paper) {
+        this.circuit = circuit;
+        this.paper = paper;
+    }
+
     public Integer getId() {
         return id;
     }

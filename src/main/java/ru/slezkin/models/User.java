@@ -21,9 +21,10 @@ public class User {
 
     public User() { }
 
-    public User(String login, String password) {
+    public User(String login, String password, Permission permission) {
         this.login = login;
         this.password = password;
+        this.permission = permission;
     }
 
     public Integer getId() {

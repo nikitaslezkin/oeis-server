@@ -20,6 +20,11 @@ public class PaperTag {
 
     public PaperTag() { }
 
+    public PaperTag(Paper paper, Tag tag) {
+        this.paper = paper;
+        this.tag = tag;
+    }
+
     public Integer getId() {
         return id;
     }
