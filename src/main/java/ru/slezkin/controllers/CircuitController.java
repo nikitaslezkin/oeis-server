@@ -1,6 +1,7 @@
 package ru.slezkin.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -8,8 +9,10 @@ import ru.slezkin.models.*;
 import ru.slezkin.repo.BasisRepository;
 import ru.slezkin.repo.CircuitRepository;
 import ru.slezkin.repo.UserRepository;
-import java.util.List;
-import java.util.Optional;
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.util.*;
 
 @RestController
 @RequestMapping("/circuit")
@@ -93,5 +96,19 @@ public class CircuitController {
         }
         circuitRepository.delete(result.get());
         return new ResponseEntity<>(result, HttpStatus.OK);
+    }
+
+    @GetMapping(path = "/image")
+    public ResponseEntity<?> getImageAsByteArray() {
+        try {
+            File file = new ClassPathResource("image.png").getFile();
+            String encodeImage = Base64.getEncoder().withoutPadding().encodeToString(Files.readAllBytes(file.toPath()));
+            Map<String, String> jsonMap = new HashMap<>();
+            jsonMap.put("content", encodeImage);
+            return new ResponseEntity<>(jsonMap, HttpStatus.OK);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 }
