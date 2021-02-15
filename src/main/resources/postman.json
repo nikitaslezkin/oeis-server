@@ -1273,6 +1273,72 @@
 					"response": []
 				}
 			]
+		},
+		{
+			"name": "SearchLine",
+			"item": [
+				{
+					"name": "getAllCircuitsByTags",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/search_line/get_all_circuits_by_tags?search_line=sum",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"search_line",
+								"get_all_circuits_by_tags"
+							],
+							"query": [
+								{
+									"key": "search_line",
+									"value": "sum"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAllCircuitsByTT",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/search_line/get_all_circuits_by_tt?search_line=11010",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"search_line",
+								"get_all_circuits_by_tt"
+							],
+							"query": [
+								{
+									"key": "search_line",
+									"value": "11010"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "image",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
 		}
 	],
 	"event": [
