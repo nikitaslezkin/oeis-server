@@ -22,8 +22,8 @@ public class PermissionController {
         return new ResponseEntity<>(result, HttpStatus.OK);
     }
 
-    @GetMapping(path="/get_by_id")
-    public ResponseEntity<?> getPermissionById(@RequestParam(value = "id") Integer id) {
+    @GetMapping(path="/{id}")
+    public ResponseEntity<?> getPermissionById(@PathVariable Integer id) {
         Optional<Permission> result = permissionRepository.findById(id);
         if (result.isEmpty()) {
             return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);

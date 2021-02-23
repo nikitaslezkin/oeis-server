@@ -27,8 +27,8 @@ public class UserController {
         return new ResponseEntity<>(result, HttpStatus.OK);
     }
 
-    @GetMapping(path="/get_by_id")
-    public ResponseEntity<?> getUserById(@RequestParam(value = "id") Integer id) {
+    @GetMapping(path="/{id}")
+    public ResponseEntity<?> getUserById(@PathVariable Integer id) {
         Optional<User> result = userRepository.findById(id);
         if (result.isEmpty()) {
             return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);

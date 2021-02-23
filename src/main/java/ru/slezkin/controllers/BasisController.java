@@ -22,8 +22,8 @@ public class BasisController {
         return new ResponseEntity<>(result, HttpStatus.OK);
     }
 
-    @GetMapping(path="/get_by_id")
-    public ResponseEntity<?> getBasisById(@RequestParam(value = "id") Integer id) {
+    @GetMapping(path="/{id}")
+    public ResponseEntity<?> getBasisById(@PathVariable Integer id) {
         Optional<Basis> result = basisRepository.findById(id);
         if (result.isEmpty()) {
             return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);

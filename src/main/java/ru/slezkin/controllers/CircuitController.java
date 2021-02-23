@@ -6,9 +6,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import ru.slezkin.models.*;
-import ru.slezkin.repo.BasisRepository;
-import ru.slezkin.repo.CircuitRepository;
-import ru.slezkin.repo.UserRepository;
+import ru.slezkin.repo.*;
+
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -21,14 +20,29 @@ public class CircuitController {
     private CircuitRepository circuitRepository;
 
     @Autowired
+    private CircuitTagRepository circuitTagRepository;
+
+    @Autowired
+    private CircuitPaperRepository circuitPaperRepository;
+
+    @Autowired
     private UserRepository userRepository;
+
+    @Autowired
+    private TagRepository tagRepository;
 
     @Autowired
     private BasisRepository basisRepository;
 
     @GetMapping(path="/all")
     public ResponseEntity<?> getAllCircuits() {
-        List<Circuit> result = circuitRepository.findAllCircuits();
+        List<FullCircuit> result = new LinkedList<>();
+        List<Circuit> circuits = circuitRepository.findAllCircuits();
+        for (Circuit circuit : circuits) {
+            List<Tag> tags = circuitTagRepository.findAllTagsByCircuit(circuit);
+            List<Paper> papers = circuitPaperRepository.findAllPapersByCircuit(circuit);
+            result.add(new FullCircuit(circuit, tags, papers));
+        }
 
         return new ResponseEntity<>(result, HttpStatus.OK);
     }
@@ -47,22 +61,24 @@ public class CircuitController {
         return new ResponseEntity<>(result, HttpStatus.OK);
     }
 
-    @GetMapping(path="/get_by_id")
-    public ResponseEntity<?> getCircuitById(@RequestParam(value = "id") Integer id) {
-        Optional<Circuit> result = circuitRepository.findById(id);
-        if (result.isEmpty()) {
+    @GetMapping(path="/{id}")
+    public ResponseEntity<?> getCircuitById(@PathVariable Integer id) {
+        Optional<Circuit> circuit = circuitRepository.findById(id);
+        if (circuit.isEmpty()) {
             return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
         }
-        return new ResponseEntity<>(result, HttpStatus.OK);
+        List<Tag> tags = circuitTagRepository.findAllTagsByCircuit(circuit.get());
+        List<Paper> papers = circuitPaperRepository.findAllPapersByCircuit(circuit.get());
+        return new ResponseEntity<>(new FullCircuit(circuit.get(), tags, papers), HttpStatus.OK);
     }
 
     @PostMapping(path="/add")
     public ResponseEntity<?> addCircuit(@RequestParam(value = "name", defaultValue = "") String name,
-                              @RequestParam(value = "description", defaultValue = "") String description,
-                              @RequestParam(value = "ckt", defaultValue = "") String ckt,
-                              @RequestParam(value = "basis_id", defaultValue = "") Integer basis_id,
-                              @RequestParam(value = "truth_table", defaultValue = "") String truth_table,
-                              @RequestParam(value = "user_id", defaultValue = "") Integer user_id) {
+                                        @RequestParam(value = "description", defaultValue = "") String description,
+                                        @RequestParam(value = "ckt", defaultValue = "") String ckt,
+                                        @RequestParam(value = "basis_id", defaultValue = "") Integer basis_id,
+                                        @RequestParam(value = "truth_table", defaultValue = "") String truth_table,
+                                        @RequestParam(value = "user_id", defaultValue = "") Integer user_id) {
         Optional<User> user = userRepository.findById(user_id);
         if (user.isEmpty()) {
             return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
@@ -110,5 +126,40 @@ public class CircuitController {
             e.printStackTrace();
         }
         return null;
+    }
+
+    @GetMapping(path="/search")
+    public ResponseEntity<?> search(@RequestParam(value = "search_line") String find_text,
+                                    @RequestParam(value = "query") String query) {
+
+
+        List<Circuit> circuits = new LinkedList<>();
+
+        if (query.equals("tags")) {
+            List<Tag> tags = tagRepository.findAllTags();
+            for(Tag tag : tags) {
+                if (find_text.toLowerCase().contains(tag.getName().toLowerCase())) {
+                    circuits.addAll(circuitTagRepository.findAllCircuitsByTag(tag));
+                }
+            }
+        } else if (query.equals("tt")) {
+            List<Circuit> circuits1 = circuitRepository.findAllCircuits();
+            for(Circuit circuit : circuits1) {
+                if (circuit.getTruth_table().toLowerCase().contains(find_text.toLowerCase())) {
+                    circuits.add(circuit);
+                }
+            }
+        } else {
+            return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+        }
+
+        List<FullCircuit> result = new LinkedList<>();
+        for (Circuit circuit : circuits) {
+            List<Tag> tags = circuitTagRepository.findAllTagsByCircuit(circuit);
+            List<Paper> papers = circuitPaperRepository.findAllPapersByCircuit(circuit);
+            result.add(new FullCircuit(circuit, tags, papers));
+        }
+
+        return new ResponseEntity<>(result, HttpStatus.OK);
     }
 }

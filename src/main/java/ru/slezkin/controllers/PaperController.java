@@ -22,8 +22,8 @@ public class PaperController {
         return new ResponseEntity<>(result, HttpStatus.OK);
     }
 
-    @GetMapping(path="/get_by_id")
-    public ResponseEntity<?> getPaperById(@RequestParam(value = "id") Integer id) {
+    @GetMapping(path="/{id}")
+    public ResponseEntity<?> getPaperById(@PathVariable Integer id) {
         Optional<Paper> result = paperRepository.findById(id);
         if (result.isEmpty()) {
             return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);

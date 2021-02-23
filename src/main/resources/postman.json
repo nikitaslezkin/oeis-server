@@ -71,20 +71,14 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "localhost:8080/circuit/get_by_id?id=1",
+							"raw": "localhost:8080/circuit/1",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
 								"circuit",
-								"get_by_id"
-							],
-							"query": [
-								{
-									"key": "id",
-									"value": "1"
-								}
+								"1"
 							]
 						}
 					},
@@ -188,6 +182,64 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "searchByTags",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/circuit/search?search_line=sum&query=tags",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"circuit",
+								"search"
+							],
+							"query": [
+								{
+									"key": "search_line",
+									"value": "sum"
+								},
+								{
+									"key": "query",
+									"value": "tags"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "searchByTT",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/circuit/search?search_line=11010&query=tt",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"circuit",
+								"search"
+							],
+							"query": [
+								{
+									"key": "search_line",
+									"value": "11010"
+								},
+								{
+									"key": "query",
+									"value": "tt"
+								}
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
@@ -219,20 +271,14 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "localhost:8080/user/get_by_id?id=3",
+							"raw": "localhost:8080/user/3",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
 								"user",
-								"get_by_id"
-							],
-							"query": [
-								{
-									"key": "id",
-									"value": "3"
-								}
+								"3"
 							]
 						}
 					},
@@ -355,20 +401,14 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "localhost:8080/tag/get_by_id?id=2",
+							"raw": "localhost:8080/tag/2",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
 								"tag",
-								"get_by_id"
-							],
-							"query": [
-								{
-									"key": "id",
-									"value": "2"
-								}
+								"2"
 							]
 						}
 					},
@@ -454,20 +494,14 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "localhost:8080/permission/get_by_id?id=1",
+							"raw": "localhost:8080/permission/1",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
 								"permission",
-								"get_by_id"
-							],
-							"query": [
-								{
-									"key": "id",
-									"value": "1"
-								}
+								"1"
 							]
 						}
 					},
@@ -553,20 +587,14 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "localhost:8080/basis/get_by_id?id=2",
+							"raw": "localhost:8080/basis/2",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
 								"basis",
-								"get_by_id"
-							],
-							"query": [
-								{
-									"key": "id",
-									"value": "2"
-								}
+								"2"
 							]
 						}
 					},
@@ -656,20 +684,14 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "localhost:8080/author/get_by_id?id=1",
+							"raw": "localhost:8080/author/1",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
 								"author",
-								"get_by_id"
-							],
-							"query": [
-								{
-									"key": "id",
-									"value": "1"
-								}
+								"1"
 							]
 						}
 					},
@@ -759,20 +781,14 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "localhost:8080/paper/get_by_id?id=20",
+							"raw": "localhost:8080/paper/3",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
 								"paper",
-								"get_by_id"
-							],
-							"query": [
-								{
-									"key": "id",
-									"value": "20"
-								}
+								"3"
 							]
 						}
 					},
@@ -1266,61 +1282,6 @@
 								{
 									"key": "tag_id",
 									"value": "16"
-								}
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "SearchLine",
-			"item": [
-				{
-					"name": "getAllCircuitsByTags",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "localhost:8080/search_line/get_all_circuits_by_tags?search_line=sum",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"search_line",
-								"get_all_circuits_by_tags"
-							],
-							"query": [
-								{
-									"key": "search_line",
-									"value": "sum"
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "getAllCircuitsByTT",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "localhost:8080/search_line/get_all_circuits_by_tt?search_line=11010",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"search_line",
-								"get_all_circuits_by_tt"
-							],
-							"query": [
-								{
-									"key": "search_line",
-									"value": "11010"
 								}
 							]
 						}

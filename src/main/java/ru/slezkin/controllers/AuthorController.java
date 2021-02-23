@@ -22,8 +22,8 @@ public class AuthorController {
         return new ResponseEntity<>(result, HttpStatus.OK);
     }
 
-    @GetMapping(path="/get_by_id")
-    public ResponseEntity<?> getAuthorById(@RequestParam(value = "id") Integer id) {
+    @GetMapping(path="/{id}")
+    public ResponseEntity<?> getAuthorById(@PathVariable Integer id) {
         Optional<Author> result = authorRepository.findById(id);
         if (result.isEmpty()) {
             return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
