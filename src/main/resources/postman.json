@@ -189,7 +189,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "localhost:8080/circuit/search?search_line=sum&query=tags",
+							"raw": "localhost:8080/circuit/search?search=sum&kind=1",
 							"host": [
 								"localhost"
 							],
@@ -200,12 +200,12 @@
 							],
 							"query": [
 								{
-									"key": "search_line",
+									"key": "search",
 									"value": "sum"
 								},
 								{
-									"key": "query",
-									"value": "tags"
+									"key": "kind",
+									"value": "1"
 								}
 							]
 						}
@@ -218,7 +218,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "localhost:8080/circuit/search?search_line=11010&query=tt",
+							"raw": "localhost:8080/circuit/search?search=11010&kind=2",
 							"host": [
 								"localhost"
 							],
@@ -229,12 +229,12 @@
 							],
 							"query": [
 								{
-									"key": "search_line",
+									"key": "search",
 									"value": "11010"
 								},
 								{
-									"key": "query",
-									"value": "tt"
+									"key": "kind",
+									"value": "2"
 								}
 							]
 						}

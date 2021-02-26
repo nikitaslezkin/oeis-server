@@ -129,20 +129,20 @@ public class CircuitController {
     }
 
     @GetMapping(path="/search")
-    public ResponseEntity<?> search(@RequestParam(value = "search_line") String find_text,
-                                    @RequestParam(value = "query") String query) {
+    public ResponseEntity<?> search(@RequestParam(value = "search") String find_text,
+                                    @RequestParam(value = "kind") Integer kind) {
 
 
         List<Circuit> circuits = new LinkedList<>();
 
-        if (query.equals("tags")) {
+        if (kind == 1) {
             List<Tag> tags = tagRepository.findAllTags();
             for(Tag tag : tags) {
                 if (find_text.toLowerCase().contains(tag.getName().toLowerCase())) {
                     circuits.addAll(circuitTagRepository.findAllCircuitsByTag(tag));
                 }
             }
-        } else if (query.equals("tt")) {
+        } else if (kind == 2) {
             List<Circuit> circuits1 = circuitRepository.findAllCircuits();
             for(Circuit circuit : circuits1) {
                 if (circuit.getTruth_table().toLowerCase().contains(find_text.toLowerCase())) {
