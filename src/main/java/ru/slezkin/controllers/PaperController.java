@@ -38,11 +38,13 @@ public class PaperController {
 
     @GetMapping(path="/{id}")
     public ResponseEntity<?> getPaperById(@PathVariable Integer id) {
-        Optional<Paper> result = paperRepository.findById(id);
-        if (result.isEmpty()) {
+        Optional<Paper> paper = paperRepository.findById(id);
+        if (paper.isEmpty()) {
             return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
         }
-        return new ResponseEntity<>(result, HttpStatus.OK);
+        List<Tag> tags = paperTagRepository.findAllTagsByPaper(paper.get());
+        List<Author> authors = paperAuthorRepository.findAllAuthorsByPaper(paper.get());
+        return new ResponseEntity<>(new FullPaper(paper.get(), tags, authors), HttpStatus.OK);
     }
 
     @PostMapping(path="/add")
