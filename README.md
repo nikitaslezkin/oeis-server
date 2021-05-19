@@ -1,1 +1,10 @@
-[Download server](https://drive.google.com/file/d/1jdm_IPg4VircLqG5865n5QyrL1krYMbR/view?usp=sharing)
+В этом репозитории представлен код основного сервера онлайн-базы знаний.
+
+Порядок локального запуска приложения:
+0. Развернуть бд.
+1. Собрать jar файл
+2. Выполнить команду "java -jar servername.jar"
+
+Также в репозитории по адресу oeis-server/src/main/resources/postman.json находится файл со всеми запросами для удобного импорта в Postman.
+
+А по адресу oeis-server/src/main/resources/patch.sql находится патч для накатывания бд.
